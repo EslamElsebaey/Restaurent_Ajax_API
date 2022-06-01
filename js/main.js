@@ -113,7 +113,7 @@ var searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("input", function () {
   var divs = "";
   for (var i = 0; i < userArray.length; i++) {
-    if (userArray[i].title.toLowerCase().includes(searchInput.value)) {
+    if (userArray[i].title.toLowerCase().includes(searchInput.value).toLowerCase()) {
       divs += ` <div class="col-lg-4 col-md-6">
       <div class="item text-center bg-white p-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         <h4>${userArray[i].publisher}</h4>
