@@ -1,0 +1,130 @@
+var userArray = [];
+var myRow = document.querySelector(".row");
+var myLinks = document.querySelectorAll(".dropdown-item");
+var modal = document.querySelector(".modal");
+var items;
+
+for (var i = 0; i < myLinks.length; i++) {
+  myLinks[i].addEventListener("click", function (e) {
+    getData(e.target.innerHTML);
+  });
+}
+
+function getData(type) {
+  var request = new XMLHttpRequest();
+
+  request.open("GET", "https://forkify-api.herokuapp.com/api/search?q=" + type);
+  request.send();
+
+  request.addEventListener("readystatechange", function () {
+    if (request.readyState == 4 && request.status == 200) {
+      userArray = JSON.parse(request.response);
+      userArray = userArray.recipes;
+      displayData();
+      items = document.querySelectorAll(".item");
+      for (var i = 0; i < items.length; i++) {
+        items[i].addEventListener("click", function (e) {
+          getRecipes(e.target.id);
+        });
+      }
+    }
+  });
+}
+getData("pizza");
+
+function displayData() {
+  var cols = "";
+  for (var i = 0; i < userArray.length; i++) {
+    cols += ` <div class="col-lg-4 col-md-6">
+      <div class="item text-center bg-white p-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <h4>${userArray[i].publisher}</h4>
+        <p>${userArray[i].title}</p>
+        <img  src="${userArray[i].image_url}" class="w-100 "  id="${userArray[i].recipe_id}">
+      </div>
+    </div>`;
+  }
+  myRow.innerHTML = cols;
+}
+
+// *********************************************************************************************************
+
+// get recipe
+
+var recipesArray;
+var modalBody = document.querySelector(".modal-body");
+
+function getRecipes(imgId) {
+  var recipeRequest = new XMLHttpRequest();
+
+  recipeRequest.open(
+    "GET",
+    "https://forkify-api.herokuapp.com/api/get?rId=" + imgId
+  );
+  recipeRequest.send();
+  recipeRequest.addEventListener("readystatechange", function () {
+    if (recipeRequest.readyState == 4 && recipeRequest.status == 200) {
+      recipesArray = JSON.parse(recipeRequest.response).recipe;
+      displayRecipes();
+    }
+  });
+}
+
+function displayRecipes() {
+  var info = "";
+  info += `<img src="${recipesArray.image_url}" class = "w-100"  />
+      <h4>${recipesArray.title}</h4>
+        <h6 class="mb-3">${recipesArray.publisher}</h6>
+        <ul class="list-unstyled">
+  <li>1- ${recipesArray.ingredients[0]}</li>
+  <li>2- ${recipesArray.ingredients[1]}</li>
+  <li>3- ${recipesArray.ingredients[2]}</li>
+  <li>4- ${recipesArray.ingredients[3]}</li>
+  <li>5- ${recipesArray.ingredients[4]}</li>
+  <li>6- ${recipesArray.ingredients[5]}</li>
+</ul>
+`;
+  modalBody.innerHTML = info;
+}
+
+// *******************************************************************************************************************
+
+// navbar fixed top
+
+var navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 200) {
+    navbar.classList.add("bg-white");
+    navbar.classList.add("shadow-lg");
+    navbar.classList.add("fixed-top");
+  } else {
+    navbar.classList.remove("shadow-lg");
+    navbar.classList.remove("fixed-top");
+    navbar.classList.remove("bg-white");
+  }
+});
+
+// *******************************************************************************************************************
+
+// search function
+
+var searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", function () {
+  var divs = "";
+  for (var i = 0; i < userArray.length; i++) {
+    if (userArray[i].title.toLowerCase().includes(searchInput.value)) {
+      divs += ` <div class="col-lg-4 col-md-6">
+      <div class="item text-center bg-white p-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <h4>${userArray[i].publisher}</h4>
+        <p>${userArray[i].title}</p>
+        <img  src="${userArray[i].image_url}" class="w-100 "  id="${userArray[i].recipe_id}">
+      </div>
+    </div>`;
+    } else {
+      divs = `<h2 class="text-danger text-center">There are no Matched Recipes</h2>`;
+      myRow.style.height = "200px";
+    }
+  }
+  myRow.innerHTML = divs;
+});
