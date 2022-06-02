@@ -113,7 +113,9 @@ var searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("input", function () {
   var divs = "";
   for (var i = 0; i < userArray.length; i++) {
-    if (userArray[i].title.toLowerCase().includes(searchInput.value.toLowerCase())) {
+    if (
+      userArray[i].title.toLowerCase().includes(searchInput.value.toLowerCase())
+    ) {
       divs += ` <div class="col-lg-4 col-md-6">
       <div class="item text-center bg-white p-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         <h4>${userArray[i].publisher}</h4>
@@ -121,10 +123,11 @@ searchInput.addEventListener("input", function () {
         <img  src="${userArray[i].image_url}" class="w-100 "  id="${userArray[i].recipe_id}">
       </div>
     </div>`;
-    } else {
-      divs = `<h2 class="text-danger text-center">There are no Matched Recipes</h2>`;
-      myRow.style.height = "200px";
     }
   }
   myRow.innerHTML = divs;
+  if (myRow.innerHTML == "") {
+    myRow.innerHTML = `<h2 class="text-danger text-center">There are no Matched Recipes</h2>`;
+    myRow.style.height = "200px";
+  }
 });
