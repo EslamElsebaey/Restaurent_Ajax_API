@@ -1,17 +1,17 @@
-var userArray = [];
-var myRow = document.querySelector(".row");
-var myLinks = document.querySelectorAll(".dropdown-item");
-var modal = document.querySelector(".modal");
-var items;
+let userArray = [];
+let myRow = document.querySelector(".row");
+let myLinks = document.querySelectorAll(".dropdown-item");
+let modal = document.querySelector(".modal");
+let items;
 
-for (var i = 0; i < myLinks.length; i++) {
+for (let i = 0; i < myLinks.length; i++) {
   myLinks[i].addEventListener("click", function (e) {
     getData(e.target.innerHTML);
   });
 }
 
 function getData(type) {
-  var request = new XMLHttpRequest();
+  let request = new XMLHttpRequest();
 
   request.open("GET", "https://forkify-api.herokuapp.com/api/search?q=" + type);
   request.send();
@@ -22,7 +22,7 @@ function getData(type) {
       userArray = userArray.recipes;
       displayData();
       items = document.querySelectorAll(".item");
-      for (var i = 0; i < items.length; i++) {
+      for (let i = 0; i < items.length; i++) {
         items[i].addEventListener("click", function (e) {
           getRecipes(e.target.id);
         });
@@ -33,8 +33,8 @@ function getData(type) {
 getData("pizza");
 
 function displayData() {
-  var cols = "";
-  for (var i = 0; i < userArray.length; i++) {
+  let cols = "";
+  for (let i = 0; i < userArray.length; i++) {
     cols += ` <div class="col-lg-4 col-md-6">
       <div class="item text-center bg-white p-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         <h4>${userArray[i].publisher}</h4>
@@ -50,11 +50,11 @@ function displayData() {
 
 // get recipe
 
-var recipesArray;
-var modalBody = document.querySelector(".modal-body");
+let recipesArray;
+let modalBody = document.querySelector(".modal-body");
 
 function getRecipes(imgId) {
-  var recipeRequest = new XMLHttpRequest();
+  let recipeRequest = new XMLHttpRequest();
 
   recipeRequest.open(
     "GET",
@@ -70,7 +70,7 @@ function getRecipes(imgId) {
 }
 
 function displayRecipes() {
-  var info = "";
+  let info = "";
   info += `<img src="${recipesArray.image_url}" class = "w-100"  />
       <h4>${recipesArray.title}</h4>
         <h6 class="mb-3">${recipesArray.publisher}</h6>
@@ -90,7 +90,7 @@ function displayRecipes() {
 
 // navbar fixed top
 
-var navbar = document.querySelector(".navbar");
+let navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", function () {
   if (window.scrollY > 200) {
@@ -108,11 +108,11 @@ window.addEventListener("scroll", function () {
 
 // search function
 
-var searchInput = document.getElementById("searchInput");
+let searchInput = document.getElementById("searchInput");
 
 searchInput.addEventListener("input", function () {
-  var divs = "";
-  for (var i = 0; i < userArray.length; i++) {
+  let divs = "";
+  for (let i = 0; i < userArray.length; i++) {
     if (
       userArray[i].title.toLowerCase().includes(searchInput.value.toLowerCase())
     ) {
