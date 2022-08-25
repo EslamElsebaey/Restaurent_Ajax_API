@@ -13,14 +13,16 @@ body {
   margin-bottom: 20px;
   font-size: 20px;
 }
-.show {
-  display: block;
-}
-.dropdown-item {
-  cursor: pointer;
+option{
   text-transform: capitalize;
 }
-
+select{
+  width: 180px ;
+  z-index: 999;
+  padding: 5px ;
+  border-radius: 3px;
+  border: 1px solid rgb(206, 212, 218);
+}
 .modal-body img {
   height: 300px !important;
   margin-bottom: 20px;
@@ -30,14 +32,6 @@ body {
 }
 .navbar-nav {
   margin-left: auto;
-}
-.dropdown-menu {
-  overflow: auto;
-  width: 200px;
-  height: 300px;
-}
-.dropdown-menu[data-bs-popper] {
-  left: -30px;
 }
 header {
   background-image: url(../images/mainBg.jpg);
@@ -68,13 +62,18 @@ header h1 {
   --bs-gutter-y: 2rem;
 }
 
+
 /* media query */
 
 @media screen and (max-width: 450px) {
   header h1 {
     font-size: 30px;
   }
+  .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl{
+    justify-content: center;
+  }
 }
+
 
 @media screen and (max-width: 600px) {
   .search {
@@ -83,6 +82,14 @@ header h1 {
   }
   .navbar-nav {
     margin-right: 1%;
+  }
+
+}
+
+@media screen and (max-width: 992px) {
+  select{
+    margin: 15px auto;
+    width: 350px;
   }
 }
 

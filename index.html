@@ -2,19 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="css/all.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <title>Food</title>
+  <title>Restaurent</title>
 </head>
 
 <body>
-
-
-  <div class="modal " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
@@ -22,72 +20,51 @@
           <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
+        <div class="modal-body">...</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-
-
-
-  <nav class="navbar navbar-expand-lg navbar-light ">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand fs-3" href="index.html">Navbar</a>
-      <div class="search ">
-        <input type="search" placeholder="Search ..." class="w-100  form-control" id="searchInput">
+      <a class="navbar-brand fs-3" href="index.html">Restaurent</a>
+      <div class="search">
+        <input type="search" placeholder="Search ..." class="form-control" id="searchInput" />
       </div>
-      <ul class="navbar-nav  mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link fs-4 text-black dropdown-toggle" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Food Items
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#home">carrot</a></li>
-            <li><a class="dropdown-item" href="#home">pizza</a></li>
-            <li><a class="dropdown-item" href="#home">broccoli</a></li>
-            <li><a class="dropdown-item" href="#home">asparagus</a></li>
-            <li><a class="dropdown-item" href="#home">cauliflower</a></li>
-            <li><a class="dropdown-item" href="#home">cucumber</a></li>
-            <li><a class="dropdown-item" href="#home">corn</a></li>
-            <li><a class="dropdown-item" href="#home">green pepper</a></li>
-            <li><a class="dropdown-item" href="#home">lettuce</a></li>
-            <li><a class="dropdown-item" href="#home">mushrooms</a></li>
-            <li><a class="dropdown-item" href="#home">potato</a></li>
-            <li><a class="dropdown-item" href="#home">pumpkin</a></li>
-            <li><a class="dropdown-item" href="#home">red pepper</a></li>
-            <li><a class="dropdown-item" href="#home">tomato</a></li>
-            <li><a class="dropdown-item" href="#home">brussel sprouts</a></li>
-            <li><a class="dropdown-item" href="#home">zucchini</a></li>
-            <li><a class="dropdown-item" href="#home">radish</a></li>
-            <li><a class="dropdown-item" href="#home">leek</a></li>
-            <li><a class="dropdown-item" href="#home">celery</a></li>
-            <li><a class="dropdown-item" href="#home">basil</a></li>
-            <li><a class="dropdown-item" href="#home">coriander</a></li>
-            <li><a class="dropdown-item" href="#home">parsley</a></li>
-            <li><a class="dropdown-item" href="#home">rosemary</a></li>
-            <li><a class="dropdown-item" href="#home">apple</a></li>
-            <li><a class="dropdown-item" href="#home">ice cream</a></li>
-            <li><a class="dropdown-item" href="#home">goat</a></li>
-            <li><a class="dropdown-item" href="#home">sushi</a></li>
-            <li><a class="dropdown-item" href="#home">pepperoni</a></li>
-            <li><a class="dropdown-item" href="#home">salami</a></li>
-            <li><a class="dropdown-item" href="#home">rendang</a></li>
-            <li><a class="dropdown-item" href="#home">croissant</a></li>
-            <li><a class="dropdown-item" href="#home">lasagna</a></li>
-            <li><a class="dropdown-item" href="#home">hummus</a></li>
-          </ul>
-        </li>
 
-      </ul>
-
-
-
+      <select id="selectBox">
+        <option value="" selected disabled>Select a Recipe</option>
+        <option value="pizza">pizza</option>
+        <option value="broccoli">broccoli</option>
+        <option value="asparagus">asparagus</option>
+        <option value="cauliflower">cauliflower</option>
+        <option value="cucumber">cucumber</option>
+        <option value="corn">corn</option>
+        <option value="green pepper">green pepper</option>
+        <option value="lettuce">lettuce</option>
+        <option value="pumpkin">pumpkin</option>
+        <option value="potato">potato</option>
+        <option value="red pepper">red pepper</option>
+        <option value="tomato">tomato</option>
+        <option value="brussel sprouts">brussel sprouts</option>
+        <option value="zucchini">zucchini</option>
+        <option value="leek">leek</option>
+        <option value="basil">basil</option>
+        <option value="ice cream">ice cream</option>
+        <option value="pepperoni">pepperoni</option>
+        <option value="rosemary">rosemary</option>
+        <option value="parsley">parsley</option>
+        <option value="apple">apple</option>
+        <option value="sushi">sushi</option>
+        <option value="rendang">rendang</option>
+        <option value="lasagna">lasagna</option>
+        <option value="hummus">hummus</option>
+      </select>
     </div>
   </nav>
 
@@ -95,24 +72,11 @@
     <h1>Never Miss a Recipe!</h1>
   </header>
 
-  <div class="home " id="home">
-    <div class="container ">
-      <div class="row  gy-4">
-
-      </div>
+  <div class="home" id="home">
+    <div class="container">
+      <div class="row gy-4"></div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
 
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>

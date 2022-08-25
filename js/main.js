@@ -1,21 +1,22 @@
+// select variables
+
 let userArray = [];
 let myRow = document.querySelector(".row");
-let myLinks = document.querySelectorAll(".dropdown-item");
+let selectBox = document.getElementById("selectBox");
 let modal = document.querySelector(".modal");
 let items;
 
-for (let i = 0; i < myLinks.length; i++) {
-  myLinks[i].addEventListener("click", function (e) {
-    getData(e.target.innerHTML);
-  });
-}
+// use select to choose your favourite recipe
+selectBox.addEventListener("change" , function(){
+  getData(this.value);
+  window.scrollTo(0, 600);
+})
 
+// get data from APi
 function getData(type) {
   let request = new XMLHttpRequest();
-
   request.open("GET", "https://forkify-api.herokuapp.com/api/search?q=" + type);
   request.send();
-
   request.addEventListener("readystatechange", function () {
     if (request.readyState == 4 && request.status == 200) {
       userArray = JSON.parse(request.response);
@@ -32,6 +33,8 @@ function getData(type) {
 }
 getData("pizza");
 
+
+// display data in HTML
 function displayData() {
   let cols = "";
   for (let i = 0; i < userArray.length; i++) {
@@ -46,9 +49,9 @@ function displayData() {
   myRow.innerHTML = cols;
 }
 
-// *********************************************************************************************************
 
-// get recipe
+
+// get recipe details
 
 let recipesArray;
 let modalBody = document.querySelector(".modal-body");
@@ -69,6 +72,8 @@ function getRecipes(imgId) {
   });
 }
 
+
+// display recipe details
 function displayRecipes() {
   let info = "";
   info += `<img src="${recipesArray.image_url}" class = "w-100"  />
@@ -86,7 +91,6 @@ function displayRecipes() {
   modalBody.innerHTML = info;
 }
 
-// *******************************************************************************************************************
 
 // navbar fixed top
 
@@ -104,13 +108,13 @@ window.addEventListener("scroll", function () {
   }
 });
 
-// *******************************************************************************************************************
 
 // search function
 
 let searchInput = document.getElementById("searchInput");
 
 searchInput.addEventListener("input", function () {
+  console.log("yes")
   let divs = "";
   for (let i = 0; i < userArray.length; i++) {
     if (
