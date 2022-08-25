@@ -16,7 +16,7 @@ body {
 option{
   text-transform: capitalize;
 }
-select{
+#selectBox{
   width: 180px ;
   z-index: 999;
   padding: 5px ;
@@ -87,7 +87,7 @@ header h1 {
 }
 
 @media screen and (max-width: 992px) {
-  select{
+  #selectBox{
     margin: 15px auto;
     width: 350px;
   }
