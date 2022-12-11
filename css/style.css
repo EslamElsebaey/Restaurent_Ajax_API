@@ -39,6 +39,11 @@ option{
 }
 .navbar {
   background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
 }
 .header-content{
   display: flex;
@@ -54,7 +59,7 @@ option{
 }
 main{
   background-image: url(../images/mainBg.jpg);
-  height: calc(100vh - 68px);
+  height: 100vh;
   background-position: center center;
   background-size: cover;
   display: flex;

@@ -92,21 +92,6 @@ function displayRecipes() {
 }
 
 
-// navbar fixed top
-
-let navbar = document.querySelector(".navbar");
-
-window.addEventListener("scroll", function () {
-  if (window.scrollY > 200) {
-    navbar.classList.add("bg-white");
-    navbar.classList.add("shadow-lg");
-    navbar.classList.add("fixed-top");
-  } else {
-    navbar.classList.remove("shadow-lg");
-    navbar.classList.remove("fixed-top");
-    navbar.classList.remove("bg-white");
-  }
-});
 
 
 // search function
