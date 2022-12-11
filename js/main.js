@@ -135,3 +135,19 @@ searchInput.addEventListener("input", function () {
     myRow.style.height = "200px";
   }
 });
+
+
+
+
+// to top button 
+$(window).scroll(function(){
+  if($(window).scrollTop() > 150){
+    $(".toTop").addClass("showToTop")
+  }else{
+    $(".toTop").removeClass("showToTop")
+  }
+})
+
+$(".toTop").click(function(){
+  $('html, body').animate({scrollTop:0}, 400);
+}) 

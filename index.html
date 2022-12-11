@@ -12,6 +12,11 @@
 </head>
 
 <body>
+  <button class="toTop">
+    <i class="fa-solid toTop-icon fa-arrow-up"></i>
+  </button> 
+
+
   <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -32,45 +37,51 @@
 
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand fs-3" href="index.html">Restaurent</a>
-      <div class="search">
-        <input type="search" placeholder="Search ..." class="form-control" id="searchInput" />
+      <div class="header-content">
+        <a class="navbar-brand fs-3" href="index.html">Restaurent</a>
+        <div class="search">
+          <input type="search" placeholder="Search ..." class="form-control" id="searchInput" />
+        </div>
+        <select id="selectBox">
+          <option value="" selected disabled>Select a Recipe</option>
+          <option value="pizza">pizza</option>
+          <option value="broccoli">broccoli</option>
+          <option value="asparagus">asparagus</option>
+          <option value="cauliflower">cauliflower</option>
+          <option value="cucumber">cucumber</option>
+          <option value="corn">corn</option>
+          <option value="green pepper">green pepper</option>
+          <option value="lettuce">lettuce</option>
+          <option value="pumpkin">pumpkin</option>
+          <option value="potato">potato</option>
+          <option value="red pepper">red pepper</option>
+          <option value="tomato">tomato</option>
+          <option value="brussel sprouts">brussel sprouts</option>
+          <option value="zucchini">zucchini</option>
+          <option value="leek">leek</option>
+          <option value="basil">basil</option>
+          <option value="ice cream">ice cream</option>
+          <option value="pepperoni">pepperoni</option>
+          <option value="rosemary">rosemary</option>
+          <option value="parsley">parsley</option>
+          <option value="apple">apple</option>
+          <option value="sushi">sushi</option>
+          <option value="rendang">rendang</option>
+          <option value="lasagna">lasagna</option>
+          <option value="hummus">hummus</option>
+        </select>
       </div>
-
-      <select id="selectBox">
-        <option value="" selected disabled>Select a Recipe</option>
-        <option value="pizza">pizza</option>
-        <option value="broccoli">broccoli</option>
-        <option value="asparagus">asparagus</option>
-        <option value="cauliflower">cauliflower</option>
-        <option value="cucumber">cucumber</option>
-        <option value="corn">corn</option>
-        <option value="green pepper">green pepper</option>
-        <option value="lettuce">lettuce</option>
-        <option value="pumpkin">pumpkin</option>
-        <option value="potato">potato</option>
-        <option value="red pepper">red pepper</option>
-        <option value="tomato">tomato</option>
-        <option value="brussel sprouts">brussel sprouts</option>
-        <option value="zucchini">zucchini</option>
-        <option value="leek">leek</option>
-        <option value="basil">basil</option>
-        <option value="ice cream">ice cream</option>
-        <option value="pepperoni">pepperoni</option>
-        <option value="rosemary">rosemary</option>
-        <option value="parsley">parsley</option>
-        <option value="apple">apple</option>
-        <option value="sushi">sushi</option>
-        <option value="rendang">rendang</option>
-        <option value="lasagna">lasagna</option>
-        <option value="hummus">hummus</option>
-      </select>
+     
     </div>
   </nav>
 
-  <header>
-    <h1>Never Miss a Recipe!</h1>
-  </header>
+  <main>
+  <div class="container">
+    <div class="main-desc">
+      <h1>Never Miss a Recipe!</h1>
+    </div>
+  </div>
+  </main>
 
   <div class="home" id="home">
     <div class="container">
@@ -78,6 +89,9 @@
     </div>
   </div>
 
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
