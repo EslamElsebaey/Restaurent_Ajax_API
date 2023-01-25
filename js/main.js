@@ -25,7 +25,7 @@ function getData(type) {
       loadingContainer.style.display = "flex" ;
       setTimeout(() => {
         loadingContainer.style.display = "none" ;
-      }, 500);
+      }, 1000);
          displayData();
          items = document.querySelectorAll(".item");
          for (let i = 0; i < items.length; i++) {
