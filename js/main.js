@@ -4,12 +4,13 @@ let userArray = [];
 let myRow = document.querySelector(".row");
 let selectBox = document.getElementById("selectBox");
 let modal = document.querySelector(".modal");
+let loadingContainer = document.querySelector(".loading-container");
 let items;
 
 // use select to choose your favourite recipe
 selectBox.addEventListener("change" , function(){
-  getData(this.value);
-  window.scrollTo(0, 600);
+    getData(this.value);
+    window.scrollTo(0, 600);
 })
 
 // get data from APi
@@ -21,13 +22,17 @@ function getData(type) {
     if (request.readyState == 4 && request.status == 200) {
       userArray = JSON.parse(request.response);
       userArray = userArray.recipes;
-      displayData();
-      items = document.querySelectorAll(".item");
-      for (let i = 0; i < items.length; i++) {
-        items[i].addEventListener("click", function (e) {
-          getRecipes(e.target.id);
-        });
-      }
+      loadingContainer.style.display = "flex" ;
+      setTimeout(() => {
+        loadingContainer.style.display = "none" ;
+      }, 500);
+         displayData();
+         items = document.querySelectorAll(".item");
+         for (let i = 0; i < items.length; i++) {
+           items[i].addEventListener("click", function (e) {
+             getRecipes(e.target.id);
+           });
+         }
     }
   });
 }
@@ -46,7 +51,10 @@ function displayData() {
       </div>
     </div>`;
   }
-  myRow.innerHTML = cols;
+  
+    myRow.innerHTML = cols;
+  
+ 
 }
 
 
